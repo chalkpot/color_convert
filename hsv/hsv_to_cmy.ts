@@ -3,7 +3,7 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-import { Hsv, Cmy } from "../color_formats.ts";
+import { Cmy, Hsv } from "../color_formats.ts";
 import { hsvToRgb } from "./hsv_to_rgb.ts";
 import { rgbToCmy } from "../rgb/rgb_to_cmy.ts";
 

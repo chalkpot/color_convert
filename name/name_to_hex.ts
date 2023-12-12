@@ -3,7 +3,7 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-import { Name, Hex } from "../color_formats.ts";
+import { Hex, Name } from "../color_formats.ts";
 import { nameToRgb } from "./name_to_rgb.ts";
 import { rgbToHex } from "../rgb/rgb_to_hex.ts";
 

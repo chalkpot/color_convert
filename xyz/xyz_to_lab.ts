@@ -3,7 +3,7 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-import { Xyz, Lab } from "../color_formats.ts";
+import { Lab, Xyz } from "../color_formats.ts";
 import { xyzToRgb } from "./xyz_to_rgb.ts";
 import { rgbToLab } from "../rgb/rgb_to_lab.ts";
 
