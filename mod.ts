@@ -3,6 +3,13 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
+/**
+ * Color convert is a set of conversion functions and automated
+ * conversions of color models and formats.
+ *
+ * @module
+ */
+
 export * from "./wrap_ansi16.ts"
 export * from "./ansi256/ansi256_to_rgb.ts";
 export * from "./cmyk/cmyk_to_rgb.ts";

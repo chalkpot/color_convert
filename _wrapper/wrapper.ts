@@ -203,7 +203,14 @@ try {
   await Deno.writeFile(
     join(ROOT_DIR, INDEX_FILE),
     new TextEncoder().encode(
-      `${thisFileCopyright}\n\n` + `${WARNING}\n\n` + fileExports.join("\n"),
+      `${thisFileCopyright}\n\n` + `${WARNING}\n\n` +
+        "/**\n" +
+        " * Color convert is a set of conversion functions and automated\n" +
+        " * conversions of color models and formats.\n" +
+        " *\n" +
+        " * @module\n" +
+        " */\n\n" +
+        fileExports.join("\n"),
     ),
   );
 
