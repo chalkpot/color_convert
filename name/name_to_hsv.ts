@@ -3,7 +3,7 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-import { Hsv, Name } from "../color_formats.ts";
+import { Name, Hsv } from "../color_formats.ts";
 import { nameToRgb } from "./name_to_rgb.ts";
 import { rgbToHsv } from "../rgb/rgb_to_hsv.ts";
 

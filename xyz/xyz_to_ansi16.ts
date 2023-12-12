@@ -3,7 +3,7 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-import { Ansi16, Xyz } from "../color_formats.ts";
+import { Xyz, Ansi16 } from "../color_formats.ts";
 import { xyzToRgb } from "./xyz_to_rgb.ts";
 import { rgbToAnsi16 } from "../rgb/rgb_to_ansi16.ts";
 

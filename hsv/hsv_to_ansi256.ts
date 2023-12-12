@@ -3,7 +3,7 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-import { Ansi256, Hsv } from "../color_formats.ts";
+import { Hsv, Ansi256 } from "../color_formats.ts";
 import { hsvToRgb } from "./hsv_to_rgb.ts";
 import { rgbToAnsi256 } from "../rgb/rgb_to_ansi256.ts";
 

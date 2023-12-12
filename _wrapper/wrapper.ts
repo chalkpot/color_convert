@@ -89,12 +89,18 @@ try {
       let text: string = new TextDecoder().decode(data);
 
       // Unreliable, but it works to overwrite paths of recreated files.
-      text = text.replace(/(\.\.\/)+/mg, ROOT_DIR);
+      text = text.replace(/(\.\.\/)+/mg, ROOT_DIR).replace(
+        thisFileCopyright,
+        `${thisFileCopyright}\n\n` + `${WARNING}\n\n`,
+      );
+
       data = new TextEncoder().encode(text);
 
       if (fileInBlacklist(entry.name)) continue;
       fileExports.push(`export * from ".${sep}${join(dir, entry.name)}";`);
       await Deno.writeFile(join(ROOT_DIR, dir, entry.name), data);
+
+      new Deno.Command(`deno fmt ${join(ROOT_DIR, dir, entry.name)}`);
     }
   }
 } catch (error) {
@@ -185,6 +191,7 @@ try {
     if (fileInBlacklist(file)) continue;
     fileExports.push(`export * from ".${sep}${file}";`);
     await Deno.writeFile(join(ROOT_DIR, file), data);
+    new Deno.Command(`deno fmt ${join(ROOT_DIR, file)}`);
   }
 } catch (error) {
   console.error(error);
@@ -199,6 +206,8 @@ try {
       `${thisFileCopyright}\n\n` + `${WARNING}\n\n` + fileExports.join("\n"),
     ),
   );
+
+  new Deno.Command(`deno fmt ${join(ROOT_DIR, INDEX_FILE)}`);
 } catch (error) {
   console.error(error);
 }

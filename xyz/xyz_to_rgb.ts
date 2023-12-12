@@ -1,5 +1,10 @@
 // Copyright 2023 mineejo. All rights reserved. MIT license.
 
+// File generated automatically!
+// Generation script: /color_convert/_wrapper/wrapper.ts
+
+
+
 import { Rgb, Xyz } from "../color_formats.ts";
 import { clamp } from "../util.ts";
 
