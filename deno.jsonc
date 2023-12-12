@@ -4,6 +4,6 @@
     "fmt": "deno fmt",
     "lint": "deno lint",
     "test": "deno test -A",
-    "wrap": "cd _wrapper && deno run -A wrapper.ts"
+    "wrap": "cd _wrapper && deno run -A wrapper.ts && deno task fmt"
   }
 }

@@ -99,8 +99,6 @@ try {
       if (fileInBlacklist(entry.name)) continue;
       fileExports.push(`export * from ".${sep}${join(dir, entry.name)}";`);
       await Deno.writeFile(join(ROOT_DIR, dir, entry.name), data);
-
-      new Deno.Command(`deno fmt ${join(ROOT_DIR, dir, entry.name)}`);
     }
   }
 } catch (error) {
@@ -191,7 +189,6 @@ try {
     if (fileInBlacklist(file)) continue;
     fileExports.push(`export * from ".${sep}${file}";`);
     await Deno.writeFile(join(ROOT_DIR, file), data);
-    new Deno.Command(`deno fmt ${join(ROOT_DIR, file)}`);
   }
 } catch (error) {
   console.error(error);
@@ -213,8 +210,6 @@ try {
         fileExports.join("\n"),
     ),
   );
-
-  new Deno.Command(`deno fmt ${join(ROOT_DIR, INDEX_FILE)}`);
 } catch (error) {
   console.error(error);
 }
