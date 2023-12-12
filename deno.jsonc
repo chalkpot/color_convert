@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts",
+    "fmt": "deno fmt",
+    "lint": "deno lint",
+    "test": "deno test -A",
+    "wrap": "cd _wrapper && deno run -A wrapper.ts"
+  }
+}
