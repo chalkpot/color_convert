@@ -3,8 +3,6 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-
-
 import { Ansi16, Rgb } from "../color_formats.ts";
 import { rgbToAnsi256 } from "./rgb_to_ansi256.ts";
 

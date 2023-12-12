@@ -3,8 +3,6 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-
-
 import { Hex, Rgb } from "../color_formats.ts";
 
 export function hexToRgb(...components: Hex): Rgb {

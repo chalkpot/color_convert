@@ -91,7 +91,7 @@ try {
       // Unreliable, but it works to overwrite paths of recreated files.
       text = text.replace(/(\.\.\/)+/mg, ROOT_DIR).replace(
         thisFileCopyright,
-        `${thisFileCopyright}\n\n` + `${WARNING}\n\n`,
+        `${thisFileCopyright}\n\n` + `${WARNING}`,
       );
 
       data = new TextEncoder().encode(text);

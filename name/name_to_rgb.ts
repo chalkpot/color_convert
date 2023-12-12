@@ -3,8 +3,6 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-
-
 import { Name, Rgb } from "../color_formats.ts";
 import { colors } from "../deps.ts";
 

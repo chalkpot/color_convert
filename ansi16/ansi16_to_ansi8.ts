@@ -3,8 +3,6 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-
-
 import { Ansi16, Ansi8 } from "../color_formats.ts";
 import { clamp } from "../util.ts";
 

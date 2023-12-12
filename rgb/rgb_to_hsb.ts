@@ -3,8 +3,6 @@
 // File generated automatically!
 // Generation script: /color_convert/_wrapper/wrapper.ts
 
-
-
 import { Hsb, Rgb } from "../color_formats.ts";
 import { clamp } from "../util.ts";
 
