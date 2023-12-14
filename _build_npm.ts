@@ -52,3 +52,9 @@ await build({
     Deno.copyFileSync("README.md", `${outDir}/README.md`);
   },
 });
+
+await Deno.writeTextFile(
+  `${outDir}/.npmignore`,
+  "_generator/\ndev_deps.ts\n",
+  { append: true },
+);
