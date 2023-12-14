@@ -1,8 +1,6 @@
 // Copyright 2023 mineejo. All rights reserved. MIT license.
 
 import { MOD_FILE } from "../_generator_constants.ts";
-import { fileExports } from "../_generator.ts";
-import { sep } from "https://deno.land/std@0.208.0/path/mod.ts";
 
 export async function generateModFile(
   comments: string,

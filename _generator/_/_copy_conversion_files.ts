@@ -1,8 +1,7 @@
 // Copyright 2023 mineejo. All rights reserved. MIT license.
 
 import { getConversionDirectories } from "./_get_conversion_directories.ts";
-import { join } from "https://deno.land/std@0.208.0/path/join.ts";
-import { sep } from "https://deno.land/std@0.208.0/path/mod.ts";
+import { join, sep } from "../../dev_deps.ts";
 import { fileExports, isFileInBlacklist } from "../_generator.ts";
 import {
   getRootDirectoryPath,
