@@ -55,6 +55,6 @@ await build({
 
 await Deno.writeTextFile(
   `${outDir}/.npmignore`,
-  "_generator/\ndev_deps.ts\n",
+  "/_generator\ndev_deps.ts\n",
   { append: true },
 );
