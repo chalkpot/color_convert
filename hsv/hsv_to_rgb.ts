@@ -1,7 +1,7 @@
 // Copyright 2023 mineejo. All rights reserved. MIT license.
 
 // File generated automatically!
-// Generation script: /color_convert/_wrapper/wrapper.ts
+// Generation script: /color_convert/_generator/_generator.ts
 
 import { clamp } from "../util.ts";
 import { Hsv, Rgb } from "../color_formats.ts";
