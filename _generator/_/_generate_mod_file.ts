@@ -1,14 +1,12 @@
 // Copyright 2023 mineejo. All rights reserved. MIT license.
 
-import { MOD_FILE } from "../_generator_constants.ts";
-
 export async function generateModFile(
   comments: string,
   content: string,
 ): Promise<void> {
   try {
     await Deno.writeFile(
-      MOD_FILE,
+      "../mod.ts",
       new TextEncoder().encode(
         comments +
           "/**\n" +

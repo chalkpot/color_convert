@@ -12,15 +12,16 @@ export async function getConversionGenerationDirectories(): Promise<string[]> {
   const generationDirectories: string[] = [];
 
   try {
-    for (const dir of directories) {
-      const count: number = removeElementArrayByValue(directories, dir).length;
+    for (const directory of directories) {
+      const directoryCount: number =
+        removeElementArrayByValue(directories, directory).length;
 
       let fileCount = 0;
-      for await (const entry of Deno.readDir(dir)) {
+      for await (const entry of Deno.readDir(directory)) {
         if (entry.isFile && !isFileInBlacklist(entry.name)) fileCount++;
       }
 
-      if (count !== fileCount) generationDirectories.push(dir);
+      if (directoryCount !== fileCount) generationDirectories.push(directory);
     }
   } catch (error) {
     console.error(error);

@@ -25,10 +25,10 @@ export function roundComponents(
   digits = 0,
 ): number[] {
   return components.map((component: number) => {
-    const s = Number("1".padEnd(digits, "0"));
-    const d: number = Math.round(component * s);
+    const n = Number("1".padEnd(digits, "0"));
+    const rounded: number = Math.round(component * n);
 
-    return d / s;
+    return rounded / n;
   });
 }
 
@@ -252,8 +252,8 @@ const rgbColors: number[][] = [
 ];
 
 export function testConversion(
-  someToRgb: ($1: any, $2: any, $3: any, $4: any) => any[],
-  rgbToSome: ($1: any, $2: any, $3: any) => any[],
+  someToRgb: (...args: any[]) => any[],
+  rgbToSome: (...args: any[]) => any[],
 ): void {
   let index = 0;
   for (let red = 0; red < 256; red += 51) {

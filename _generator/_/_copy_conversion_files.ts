@@ -1,15 +1,10 @@
 // Copyright 2023 mineejo. All rights reserved. MIT license.
 
 import { getConversionDirectories } from "./_get_conversion_directories.ts";
-import { join, sep } from "../../dev_deps.ts";
 import { fileExports, isFileInBlacklist } from "../_generator.ts";
-import {
-  getRootDirectoryPath,
-  getRootFilePath,
-  resoleDirectoryExitPath,
-} from "../_generator_constants.ts";
 
-async function isFolderEmpty(folderPath: string): Promise<boolean> {
+async function isEmptyDirectory(folderPath: string): Promise<boolean> {
+  // noinspection LoopStatementThatDoesntLoopJS
   for await (const _ of Deno.readDir(folderPath)) {
     return false;
   }
@@ -21,27 +16,27 @@ export async function copyConversionFiles(
   newComments: string,
 ): Promise<void> {
   try {
-    for (const dir of await getConversionDirectories()) {
-      if (!await isFolderEmpty(dir)) {
-        await Deno.mkdir(getRootDirectoryPath(dir), { recursive: true });
+    for (const directory of await getConversionDirectories()) {
+      if (!await isEmptyDirectory(directory)) {
+        await Deno.mkdir(`../${directory}`, { recursive: true });
       }
 
-      for await (const entry of Deno.readDir(dir)) {
-        if (!entry.isFile) continue;
+      for await (const entry of Deno.readDir(directory)) {
+        if (!entry.isFile || isFileInBlacklist(entry.name)) continue;
 
-        const data: Uint8Array = await Deno.readFile(join(dir, entry.name));
-        const content: string = resoleDirectoryExitPath(
-          new TextDecoder().decode(data),
-        ).replace(
-          comments,
-          newComments,
+        fileExports.push(`export * from "./${directory}/${entry.name}";`);
+
+        const fileData: Uint8Array = await Deno.readFile(
+          `${directory}/${entry.name}`,
         );
 
-        if (isFileInBlacklist(entry.name)) continue;
-        fileExports.push(`export * from ".${sep}${join(dir, entry.name)}";`);
+        const fileContent: string = new TextDecoder().decode(fileData)
+          .replace(/(\.\.\/)+/mg, "../")
+          .replace(comments, newComments);
+
         await Deno.writeFile(
-          getRootFilePath(join(dir, entry.name)),
-          new TextEncoder().encode(content),
+          `../${directory}/${entry.name}`,
+          new TextEncoder().encode(fileContent),
         );
       }
     }

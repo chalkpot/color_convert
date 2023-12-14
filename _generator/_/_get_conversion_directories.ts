@@ -1,26 +1,23 @@
 // Copyright 2023 mineejo. All rights reserved. MIT license.
 
-import {
-  CONVERSION_DIR,
-  DIRECTORY_BLACKLIST,
-} from "../_generator_constants.ts";
+import { DIRECTORY_BLACKLIST } from "../_generator.ts";
 
 function isDirectoryInBlacklist(directory: string): boolean {
   return DIRECTORY_BLACKLIST.some((regExp: RegExp) => regExp.test(directory));
 }
 
 export async function getConversionDirectories(): Promise<string[]> {
-  const dirs: string[] = [];
+  const directories: string[] = [];
 
   try {
-    for await (const entry of Deno.readDir(CONVERSION_DIR)) {
+    for await (const entry of Deno.readDir("./")) {
       if (entry.isDirectory && !isDirectoryInBlacklist(entry.name)) {
-        dirs.push(entry.name);
+        directories.push(entry.name);
       }
     }
   } catch (error) {
     console.error(error);
   }
 
-  return dirs;
+  return directories;
 }
