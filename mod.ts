@@ -10,6 +10,7 @@
  * @module
  */
 
+export * from "./wrap_ansi16.ts";
 export * from "./hex/hex_to_rgb.ts";
 export * from "./hsv/hsv_to_rgb.ts";
 export * from "./rgb/rgb_to_xyz.ts";

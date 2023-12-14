@@ -22,7 +22,7 @@ const thisFileCopyright: string = (await Deno.readTextFile(
   join(`.${sep}`, thisFileUrl[thisFileUrl.length - 1]),
 )).match(/^\/\/.+$/mg)?.[0] ?? "";
 
-export const fileExports: string[] = [];
+export const fileExports: string[] = [`export * from ".${sep}wrap_ansi16.ts"`];
 
 await copyConversionFiles(
   thisFileCopyright,

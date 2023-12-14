@@ -8,8 +8,6 @@ export async function generateModFile(
   comments: string,
   content: string,
 ): Promise<void> {
-  fileExports.push(`export * from ".${sep}wrap_ansi16.ts"`);
-
   try {
     await Deno.writeFile(
       MOD_FILE,
