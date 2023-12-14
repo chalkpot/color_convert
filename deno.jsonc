@@ -1,9 +1,18 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts",
-    "fmt": "deno fmt",
-    "lint": "deno lint",
-    "test": "deno test -A",
-    "generate": "cd _generator && deno run -A _generator.ts && deno task fmt"
-  }
+    // cd .npm; npm publish --access public
+    "build": "deno run --allow-read --allow-write --allow-net --allow-env --allow-run _build_npm.ts",
+    "generate": "cd _generator && deno run -A _generator.ts && deno fmt"
+  },
+  "fmt": {
+    "include": [
+      "./"
+    ]
+  },
+  "exclude": [
+    "./.github",
+    "./.idea",
+    "./.git",
+    "./.npm"
+  ]
 }
