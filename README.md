@@ -41,6 +41,12 @@ console.log(rgbToName(255, 0, 0)[0]); // red
 console.log(rgbToLab(255, 100, 25)); // [62.03..., 56.12..., 66.05...]
 ```
 
+## Related
+
+- [colors](https://github.com/chalkpot/colors) - Colors is JSON with the names
+  of colors, their values and localization. Colors are based on HTML color names
+  and CSS keywords.
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to
